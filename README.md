@@ -1,5 +1,20 @@
-# postgis-docker
-**postgis-docker** is a Flask REST API for PostGIS TIGER/Line geocoder using Docker containers. This repo:
+# Docker-ACMT
+**Docker-ACMT** is three things:
+
+1) A Flask REST API for PostGIS TIGER/Line geocoder using Docker containers. 
+2) A Proxy file downloader to get shapefiles and data files to enable ACMT R code
+3) The ACMT R code
+
+Builds off of https://github.com/uwrit/postgis-docker.
+
+To set up the Docker ACMT, you should:
+
+1) Follow the Postgis-Docker instructions below, which will both install the Postgis geocoder and download files the ACMT needs
+2) Load and run TestDockerACMT.R
+
+Contact Steve Mooney (sjm2186@uw.edu) with any questions
+
+# Postgis-Docker Instructions
 
 1) Incorporates steps described in https://experimentalcraft.wordpress.com/2017/11/01/how-to-make-a-postgis-tiger-geocoder-in-less-than-5-days/ for setting up a PostGIS database with TIGER Geocoder, but does so in a pre-configured Docker container for simple setup.
 2) Sets up a simple Python Flask REST API in a second Docker container as a wrapper for the database, binding to port 5000.
