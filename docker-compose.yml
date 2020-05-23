@@ -10,7 +10,7 @@ services:
             GEOCODER_STATES: "${GEOCODER_STATES}"
             GEOCODER_YEAR: "${GEOCODER_YEAR}"
         ports:
-            - "5432:5432"
+            - "5433:5432"
         networks:
             default:
                 aliases:
@@ -30,6 +30,13 @@ services:
             default:
                 aliases:
                     - api
+
+
+    files:
+        ports:
+            - "7000:80"
+        build:
+            context: ./src/files
 
 networks:
     default:

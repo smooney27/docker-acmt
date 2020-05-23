@@ -6,7 +6,7 @@ from flask import Flask, Request, request, jsonify
 from .modules.response import ok, bad_request, forbidden, not_found, server_error
 from .modules.postgis import PostgisConnector
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='/gisdata')
 postgis = PostgisConnector()
 
 #########################################
