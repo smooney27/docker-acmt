@@ -27,16 +27,16 @@ Setting up PostGIS and loading [US Census TIGER spatial files](https://www.censu
 
 1) **clone the repo:**
 ```bash
-$ git clone git@github.com:uwrit/postgis-docker.git
+$ git clone git@github.com:smooney27/docker-acmt.git
 ```
 
 2) **Create and configure a `.env` file in the root directory for environment variables:**
 ```bash
-$ cd postgis-docker
+$ cd docker-acmt
 $ touch .env
 ```
 
-Edit the file to look like this (set the actual values to your needs):
+Edit the .env file you just created (use Notepad on Windows, TextEdit on a Mac, vi on Linus)  to look like this (set the actual values to your needs):
 ```bash
 POSTGRES_DB=geocoder      # Whatever database name you'd like.
 POSTGRES_USER=<usr>       # Your username.
