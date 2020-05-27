@@ -27,7 +27,7 @@ Setting up PostGIS and loading [US Census TIGER spatial files](https://www.censu
 
 1) **clone the repo:**
 ```bash
-$ git clone git@github.com:smooney27/docker-acmt.git
+$ git clone https://github.com/smooney27/docker-acmt.git
 ```
 
 2) **Create and configure a `.env` file in the root directory for environment variables:**
