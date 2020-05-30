@@ -33,10 +33,9 @@ $ git clone https://github.com/smooney27/docker-acmt.git
 2) **Configure the `.env` file in the root directory to set the states to download geocoding files for**
 ```bash
 $ cd docker-acmt
-$ vi .env
 ```
 
-Edit the .env file you just created (use Notepad on Windows, TextEdit on a Mac, vi on Linus)  to look like this (set the actual values to your needs):
+Edit the .env file that's there (use a text editor: Notepad on Windows, TextEdit on a Mac, vi on Linux, etc.) to include the states your addresses might be in:
 ```bash
 GEOCODER_STATES=<Your state abbreviations (e.g. WA,OR,CA)>
 ```
