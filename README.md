@@ -30,22 +30,15 @@ Setting up PostGIS and loading [US Census TIGER spatial files](https://www.censu
 $ git clone https://github.com/smooney27/docker-acmt.git
 ```
 
-2) **Create and configure a `.env` file in the root directory for environment variables:**
+2) **Configure the `.env` file in the root directory to set the states to download geocoding files for**
 ```bash
 $ cd docker-acmt
-$ touch .env
+$ vi .env
 ```
 
 Edit the .env file you just created (use Notepad on Windows, TextEdit on a Mac, vi on Linus)  to look like this (set the actual values to your needs):
 ```bash
-POSTGRES_DB=geocoder      # Whatever database name you'd like.
-POSTGRES_USER=user        # A username for the Postgres instance inside the docker; make this whatever you want.
-POSTGRES_PASSWORD=pwd     # A password for the Postgres instance inside the docker; make this whatever you want.
-GEOCODER_STATES=WA,OR,CA  # Comma-delimited state abbrevations.
-                          # postgis-docker will load state TIGER files for each state specified here.
-                          # Note: Setting this to "*" (without quotes) will load data for all US states.
-GEOCODER_YEAR=2017        # The specific year to download TIGER files for.
-                          # (The Census bureau publishes updated files each year)
+GEOCODER_STATES=<Your state abbreviations (e.g. WA,OR,CA)>
 ```
 
 3) **Finally:**
