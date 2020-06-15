@@ -36,15 +36,21 @@ if (!dir.exists("ACMT")) {
   dir.create("ACMT")
 }
 
-zones_shp_url = "http://localhost:7000/USA_State_Plane_Zones_NAD83.shp"
-zones_shx_url = "http://localhost:7000/USA_State_Plane_Zones_NAD83.shx"
-zones_dbf_url = "http://localhost:7000/USA_State_Plane_Zones_NAD83.dbf"
-zones_prj_url = "http://localhost:7000/USA_State_Plane_Zones_NAD83.prj"
-download.file(url = zones_shp_url, destfile = "ACMT/zones.shp")
-download.file(url = zones_shx_url, destfile = "ACMT/zones.shx")
-download.file(url = zones_dbf_url, destfile = "ACMT/zones.dbf")
-download.file(url = zones_prj_url, destfile = "ACMT/zones.prj")
-state_plane_zones <- sf::st_read(dsn="ACMT", layer="zones")
+# TEMP -- not able to load this shapefile after downloading from local docker host
+#zones_shp_url = "http://localhost:7000/USA_State_Plane_Zones_NAD83.shp"
+#zones_shx_url = "http://localhost:7000/USA_State_Plane_Zones_NAD83.shx"
+#zones_dbf_url = "http://localhost:7000/USA_State_Plane_Zones_NAD83.dbf"
+#zones_prj_url = "http://localhost:7000/USA_State_Plane_Zones_NAD83.prj"
+#download.file(url = zones_shp_url, destfile = "ACMT/zones.shp")
+#download.file(url = zones_shx_url, destfile = "ACMT/zones.shx")
+#download.file(url = zones_dbf_url, destfile = "ACMT/zones.dbf")
+#download.file(url = zones_prj_url, destfile = "ACMT/zones.prj")
+#state_plane_zones <- sf::st_read(dsn="ACMT", layer="zones")
+
+
+download.file(url = "http://sandbox.idre.ucla.edu/mapshare/data/usa/other/spcszn83.zip", destfile = "ACMT/spcszn83.zip")
+unzip("ACMT/spcszn83.zip", exdir="ACMT")
+state_plane_zones <- sf::st_read(dsn="ACMT", layer="spcszn83")
 
 
 counties_shp_url = "http://localhost:7000/cb_2017_us_county_500k.shp"
