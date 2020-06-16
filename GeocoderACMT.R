@@ -53,15 +53,20 @@ unzip("ACMT/spcszn83.zip", exdir="ACMT")
 state_plane_zones <- sf::st_read(dsn="ACMT", layer="spcszn83")
 
 
-counties_shp_url = "http://localhost:7000/cb_2017_us_county_500k.shp"
-counties_shx_url = "http://localhost:7000/cb_2017_us_county_500k.shx"
-counties_dbf_url = "http://localhost:7000/cb_2017_us_county_500k.dbf"
-counties_prj_url = "http://localhost:7000/cb_2017_us_county_500k.prj"
-download.file(url = counties_shp_url, destfile = "ACMT/cb_2017_us_county_500k.shp")
-download.file(url = counties_shx_url, destfile = "ACMT/cb_2017_us_county_500k.shx")
-download.file(url = counties_dbf_url, destfile = "ACMT/cb_2017_us_county_500k.dbf")
-download.file(url = counties_prj_url, destfile = "ACMT/cb_2017_us_county_500k.prj")
-counties <- sf::st_read(dsn = "ACMT", layer = "cb_2017_us_county_500k")
+# counties_shp_url = "http://localhost:7000/cb_2017_us_county_500k.shp"
+# counties_shx_url = "http://localhost:7000/cb_2017_us_county_500k.shx"
+# counties_dbf_url = "http://localhost:7000/cb_2017_us_county_500k.dbf"
+# counties_prj_url = "http://localhost:7000/cb_2017_us_county_500k.prj"
+# download.file(url = counties_shp_url, destfile = "ACMT/cb_2017_us_county_500k.shp")
+# download.file(url = counties_shx_url, destfile = "ACMT/cb_2017_us_county_500k.shx")
+# download.file(url = counties_dbf_url, destfile = "ACMT/cb_2017_us_county_500k.dbf")
+# download.file(url = counties_prj_url, destfile = "ACMT/cb_2017_us_county_500k.prj")
+# counties <- sf::st_read(dsn = "ACMT", layer = "cb_2017_us_county_500k")
+# counties <- st_transform(counties, 4326)
+
+download.file(url = "https://www2.census.gov/geo/tiger/GENZ2017/shp/cb_2017_us_county_500k.zip", destfile = "ACMT/cb_2017_us_county_500k.zip")
+unzip("ACMT/cb_2017_us_county_500k.zip", exdir="ACMT")
+counties <- sf::st_read(dsn="ACMT", layer="cb_2017_us_county_500k")
 counties <- st_transform(counties, 4326)
 
 acs_columns_2010_url = "http://localhost:7000/2010ACSColumns.csv"
